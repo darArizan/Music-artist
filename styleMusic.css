@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+   background-color: white;
+    
+    
+} 
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    visibility: hidden;
+   
+    
+}
+
+.searchMusic{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 90px;
+    flex-wrap: wrap;
+    padding-top: 50px
+} 
+.go{
+    width: 300px;
+    border-radius: 7px;
+    outline: none;
+
+
+}
+.buttonMusic{
+    width: 70px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+     
+
+button:hover{
+    background-color: darkcyan;
+}
+
+
+.allInfo{
+    align-items: center;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    position: relative;
+    bottom: 100px;
+    /* padding-top: 130px; */
+
+}
+img{
+    width: 400px;
+    padding-top: 50px
+}
+
+.text{
+    color: #8fa28d;
+    font-size: large;
+}
+
+.home{
+    color: rgb(31, 175, 26);
+    cursor: pointer;
+ 
+}
+.searchAlbums{
+    color: rgb(31, 175, 26);
+    cursor: pointer;
+}
+.goOnArtist{
+    color: rgb(31, 175, 26);
+    cursor: pointer;
+    visibility: hidden;
+ 
+}
