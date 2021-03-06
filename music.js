@@ -13,6 +13,7 @@ let albumContainer = document.querySelector('.albumContainer')
 let albumAndSongs = document.querySelector('.albumAndSongs')
 let tracks = document.querySelector('.tracks')
 let videos=document.querySelector('.videos')
+let videoContainer=document.querySelector('.videoContainer')
 
 const createEl = (type, className) => {
   let element = document.createElement(type)
@@ -35,7 +36,7 @@ input.addEventListener('keypress', function (el) {
 })
 
 const getArtist = () => {
-
+allInfo.style.display='flex'
   searchBar.style.visibility = 'hidden'
   nav.style.visibility = 'visible'
   const findArtist = req + 'search.php?s=' + input.value.toLowerCase()
@@ -136,6 +137,7 @@ const printAlbumList = (el) => {
 searchAlbums.addEventListener('click', function () {
   nav.style.visibility = 'hidden'
   goOnArtist.style.visibility = 'visible'
+  allInfo.style.display='none'
   removeAlbumAndSongs()
   resetVideos()
   getAlbums(artistIdName)
@@ -144,6 +146,7 @@ searchAlbums.addEventListener('click', function () {
 
 goOnArtist.addEventListener('click', function () {
   goOnArtist.style.visibility = 'hidden'
+  allInfo.style.display='flex'
   removeAlbums()
   getArtist()
 })
