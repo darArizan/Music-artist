@@ -12,8 +12,7 @@ let goOnArtist = document.querySelector('.goOnArtist')
 let albumContainer = document.querySelector('.albumContainer')
 let albumAndSongs = document.querySelector('.albumAndSongs')
 let tracks = document.querySelector('.tracks')
-let videos=document.querySelector('.videos')
-let videoContainer=document.querySelector('.videoContainer')
+let videoContainer = document.querySelector('.videoContainer')
 
 const createEl = (type, className) => {
   let element = document.createElement(type)
@@ -36,14 +35,14 @@ input.addEventListener('keypress', function (el) {
 })
 
 const getArtist = () => {
-allInfo.style.display='flex'
+  allInfo.style.display = 'flex'
   searchBar.style.visibility = 'hidden'
   nav.style.visibility = 'visible'
   const findArtist = req + 'search.php?s=' + input.value.toLowerCase()
   fetch(findArtist)
     .then(response => response.json())
     .then(data => {
-      
+
       let infoArtist = data.artists[0]
       artistIdName = infoArtist.idArtist
       artistName.textContent = infoArtist.strArtist
@@ -64,43 +63,42 @@ allInfo.style.display='flex'
     })
 }
 
-const getVideos=(el)=>{
-  const videoList=req+ 'mvid.php?i=' + el
+const getVideos = (el) => {
+  const videoList = req + 'mvid.php?i=' + el
   fetch(videoList)
-  .then(response=>response.json())
-   .then(data=>{
- printVideos(data.mvids)
-   })
+    .then(response => response.json())
+    .then(data => {
+      printVideos(data.mvids)
+    })
 }
 
-const printVideos=(el)=>{
-  for (let i = 0; i < 4; i++){
-let videoName=createEl('p','videoName')
-  videoName.textContent=el[i].strTrack
-  let video=createEl('iframe','vid')
-  
-  let baseVideoUrl = 'https://www.youtube.com/embed/';
-  let videosUrl = el[i].strMusicVid;
-  let splitedUrl = videosUrl.split('=')
-  let videoId = splitedUrl[1];
-  video.src = baseVideoUrl + videoId;
-  let videos=document.querySelector('.videos')
-  videos.appendChild(videoName)
-  videos.appendChild(video)
-  allInfo.appendChild(videos)
+const printVideos = (el) => {
+  for (let i = 0; i < 4; i++) {
+    let videoName = createEl('p', 'videoName')
+    videoName.textContent = el[i].strTrack
+    let video = createEl('iframe', 'vid')
+
+    let baseVideoUrl = 'https://www.youtube.com/embed/';
+    let videosUrl = el[i].strMusicVid;
+    let splitedUrl = videosUrl.split('=')
+    let videoId = splitedUrl[1];
+    video.src = baseVideoUrl + videoId;
+    let oneVideo = createEl('div', 'oneVideo')
+    oneVideo.appendChild(videoName)
+    oneVideo.appendChild(video)
+    videoContainer.appendChild(oneVideo)
+    allInfo.appendChild(videoContainer)
   }
 }
 const resetVideos = () => {
-  videos.innerHTML=''
+  videoContainer.innerHTML = ''
 }
 
-
-    
 home.addEventListener('click', function () {
   searchBar.style.visibility = 'visible'
   nav.style.visibility = 'hidden'
   input.value = ''
- resetVideos()
+  resetVideos()
   removeArtist()
   removeAlbums()
   removeAlbumAndSongs()
@@ -137,7 +135,7 @@ const printAlbumList = (el) => {
 searchAlbums.addEventListener('click', function () {
   nav.style.visibility = 'hidden'
   goOnArtist.style.visibility = 'visible'
-  allInfo.style.display='none'
+  allInfo.style.display = 'none'
   removeAlbumAndSongs()
   resetVideos()
   getAlbums(artistIdName)
@@ -146,16 +144,14 @@ searchAlbums.addEventListener('click', function () {
 
 goOnArtist.addEventListener('click', function () {
   goOnArtist.style.visibility = 'hidden'
-  allInfo.style.display='flex'
+  allInfo.style.display = 'flex'
   removeAlbums()
   getArtist()
 })
 
 const getSingleAlbum = (el) => {
   removeAlbums()
-
   goOnArtist.style.visibility = 'hidden'
-
   nav.style.visibility = 'visible'
 
   const oneAlbum = req + 'album.php?m=' + el
@@ -207,7 +203,6 @@ const removeArtist = () => {
 }
 
 const removeAlbumAndSongs = () => {
-  let tracks = document.querySelector('.tracks')
   artistName.innerHTML = ''
   albumContainer.innerHTML = ''
   tracks.innerHTML = ''

@@ -28,11 +28,11 @@ body{
 }
 
 .go{
-    width: 300px;
+    min-width: 40%;
     border-radius: 7px;
     outline: none;
-    color: rgb(56, 54, 54);
-    border: 2px solid rgba(44, 46, 46, 0.3);
+    color: rgb(29, 28, 28);
+    border: 2px solid rgba(44, 46, 46, 0.4);
     background-color: transparent;
     height: 40px;
 
@@ -41,10 +41,10 @@ body{
 }
 
 .buttonMusic{
-    width: 70px;
+    min-width: 70px;
     border-radius: 7px;
     color: rgb(87, 84, 84);
-    border: 2px solid rgba(44, 46, 46, 0.3);
+    border: 2px solid rgba(44, 46, 46, 0.4);
     cursor: pointer;
 } 
       
@@ -52,7 +52,7 @@ body{
 .buttonMusic:hover{
     background-color: rgba(85, 87, 87, 0.3);
    
-    color: rgb(68, 66, 66);
+    color: rgb(44, 43, 43);
 } 
 
 
@@ -71,14 +71,12 @@ body{
 .artistName{
     font-size: 20px;
 }
-img{
-    width: 500px;
+.posterImg{
+    width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
-    margin: 0 auto;
-    display: block;
-   
 }
+
 
 .text{
     color: #8fa28d;
@@ -111,18 +109,21 @@ img{
 .poster{
     width: 80%;
 }
-.posterImg{
-    width: 500px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-.videos{
-    width: 60%;
+
+.videoContainer{
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    }
+
+.videoName{
+    font-size: 14px;
+    font-weight: 600;
+}
+.oneVideo{
+    width: 40%;
 }
 .vid{
     width: 100%;
@@ -167,10 +168,23 @@ img{
     font-size: 30px;
 }
 .albumContainer{
-    text-align: center;
     font-size: 30px;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.albumCover{
+    width: 80%;
+}
+.albumImg{
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    display: block;
+   
 }
 .tracks{
  
@@ -179,4 +193,47 @@ img{
     width: 30%;
     margin-top: 90px; 
     flex-direction: column;  
+   align-items: center;
+}
+@media all and (max-width:769px ){
+    .videoName{
+        font-size: 12px;
+    }
+    .albumAndSongs{
+        width: 100%;
+        position: relative;
+        bottom: 60px;
+    }
+    .albumContainer{
+        width:60%;
+        justify-content: space-between;
+    }
+    .tracks{
+        align-items: center;
+        width: 50%;
+    }
+
+}
+@media all and (max-width:414px){
+    .videoContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .oneVideo{
+        width: 100%;
+         }
+    .albumAndSongs{
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        bottom: 120px;
+         }
+    .albumContainer{
+        width: 90%;
+    }
+    .tracks{
+        width:100%;
+        align-items: center;
+    }
 }
